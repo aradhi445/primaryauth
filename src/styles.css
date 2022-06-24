@@ -1,0 +1,27 @@
+.styled-text {
+    
+    font-size:larger;
+    font-weight:bold;
+
+     }
+
+    .amplify-heading--1 {    
+        font-size: 2rem;
+        text-align-last: center;
+        color:black;
+        background-color:skyblue
+    }
+      
+      .amplify-heading--3 {
+        font-size: 2rem;
+        font-style: italic;
+        text-align-last: center;
+        background-color: skyblue;
+               
+         }
+
+       
+
+     
+
+   

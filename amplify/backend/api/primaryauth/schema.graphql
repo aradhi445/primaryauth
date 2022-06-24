@@ -1,0 +1,33 @@
+type Answer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Option_text1: String
+  Option_text2: String
+  Option_text3: String
+  Option_text4: String
+  Users: [User] @manyToMany(relationName: "AnswerUser")
+  questionsID: ID! @index(name: "byQuestions")
+}
+
+type Options @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Option1: String
+  Option2: String
+  Option3: String
+  Option4: String
+  Users: Questions @hasOne
+  Questions: [Questions] @manyToMany(relationName: "OptionsQuestions")
+}
+
+type Questions @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Question_Text: String
+  optionss: [Options] @manyToMany(relationName: "OptionsQuestions")
+}
+
+type User @model @auth(rules: [{allow: public}, {allow: private}]) {
+  id: ID!
+  Username: String
+  questionsID: ID! @index(name: "byQuestions")
+  optionsID: ID! @index(name: "byOptions")
+  answers: [Answer] @manyToMany(relationName: "AnswerUser")
+}
